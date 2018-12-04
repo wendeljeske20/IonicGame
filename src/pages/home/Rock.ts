@@ -26,6 +26,9 @@ export class Rock extends GameObject {
 
     Update() {
 
+        if (!player.alive) {
+            this.Destroy();
+        }
         this.healthText.text = this.currentHealth.toString();
         this.healthText.position.setTo(this.sprite.x, this.sprite.y);
         if (ground)
@@ -36,23 +39,21 @@ export class Rock extends GameObject {
             this.Destroy();
         }
     }
-    PlayerReward(mh : number){
+    PlayerReward(mh: number) {
         switch (mh) {
             case 25:
-            player.AddXp(100); 
-            player.score += 100;
+                player.AddXp(100);
+                player.score += 100;
                 break;
             default:
                 break;
         }
     }
-    SetMaxHealth(mh: number)
-    {
+    SetMaxHealth(mh: number) {
         this.maxHealth = mh;
         this.currentHealth = mh;
     }
-    SetSize(size: number)
-    {
+    SetSize(size: number) {
         this.sprite.scale.setTo(size, size);
     }
     StartBody() {

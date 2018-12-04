@@ -1,6 +1,6 @@
 import { GameObject } from "./GameObject";
 import { Rock } from "./Rock";
-import { objects } from "./home";
+import { objects, player } from "./home";
 
 export class Spawner extends GameObject {
 
@@ -23,7 +23,7 @@ export class Spawner extends GameObject {
     }
 
     Update() {
-        if (this.rocks.length < 4) {
+        if (this.rocks.length < 4 && player.alive) {
             this.nextSpawnRate++;
             if (this.nextSpawnRate >= this.spawnRate) {
                 /* this.SpawnRandomRock(Phaser.Math.random(50, 300), 150, Phaser.Math.roundTo(Phaser.Math.random(100, 500)), Phaser.Math.random(1, 2));

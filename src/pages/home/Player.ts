@@ -22,6 +22,8 @@ export class Player extends GameObject {
     playerLevel: number;
     xp: number;
 
+    alive:boolean;
+
 
     constructor(x: number, y: number, spriteName: string) {
         super();
@@ -45,21 +47,28 @@ export class Player extends GameObject {
         this.life = 100;
         this.playerLevel = 1;
         this.xp = 0;
+        this.alive = true;
     }
 
     Update() {
-        this.Controls();
-        this.weapon.Update();
+        
 
-        if(this.life <= 50)
+        if(this.life <= 90 && this.alive)
         {
             hud.OpenGameOverScreen();
+            
+            this.alive = false;
+        }
+        if(this.alive){
+            this.Controls();
+            this.weapon.Update();
         }
     }
 
     Fire() {
         this.weapon.Fire();
     }
+
     AddXp(addXp: number) {
         this.xp += addXp;
     }

@@ -32,7 +32,7 @@ export class HUD extends GameObject {
 
 
 
-        this.OpenGameOverScreen();
+       // this.OpenGameOverScreen();
     }
 
     Update() {
@@ -62,8 +62,16 @@ export class HUD extends GameObject {
     }
 
     ButtonTryAgainUp() {
+        this.Restart();
         this.CloseGameOverScreen();
-        //player.Start();
+       
+    }
+
+    Restart()
+    {
+        player.Start();
+        spawner.Start();
+
     }
 
     CloseGameOverScreen() {
