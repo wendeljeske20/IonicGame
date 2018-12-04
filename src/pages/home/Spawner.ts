@@ -11,9 +11,14 @@ export class Spawner extends GameObject {
 
     constructor() {
         super();
+        this.rocks = [];
+        this.Start();
+    }
+
+    Start()
+    {
         this.spawnRate = 200;
         this.nextSpawnRate = 0;
-        this.rocks = [];
         this.level = 1;
     }
 
@@ -43,22 +48,22 @@ export class Spawner extends GameObject {
                 break;
             case 2:
                 rock.sprite.tint = Phaser.Color.BLUE;
-                rock.SetMaxHealth(30);
+                rock.SetMaxHealth(40);
                 rock.SetSize(1.2);
                 break;
             case 3:
                 rock.sprite.tint = Phaser.Color.AQUA;
-                rock.SetMaxHealth(50);
+                rock.SetMaxHealth(70);
                 rock.SetSize(1.5);
                 break;
             case 4:
                 rock.sprite.tint = Phaser.Color.VIOLET;
-                rock.SetMaxHealth(70);
+                rock.SetMaxHealth(100);
                 rock.SetSize(1.8);
                 break;
             case 5:
                 rock.sprite.tint = Phaser.Color.BLACK;
-                rock.SetMaxHealth(100);
+                rock.SetMaxHealth(150);
                 rock.SetSize(2);
                 break;
         }

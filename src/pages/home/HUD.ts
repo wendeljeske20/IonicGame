@@ -1,5 +1,7 @@
 import { GameObject } from "./GameObject";
 import { game, objects, player, spawner } from "./home";
+import { Sprite, Button, Color } from "phaser-ce";
+import { Player } from "./Player";
 
 export class HUD extends GameObject {
 
@@ -12,17 +14,25 @@ export class HUD extends GameObject {
     playerLvlText: Phaser.Text;
     downHUD: Phaser.Sprite;
 
+    gameOverTitle: Phaser.Sprite;
+    gameOverQuitButton: Button;
+    gameOverTryAgainButton: Button;
+
+
 
     constructor() {
         super();
-        this.downHUD = game.add.sprite(0,551, 'downHUD');
+        this.downHUD = game.add.sprite(0, 551, 'downHUD');
         this.objectsText = this.GetText(40, 15, "0", "15px Arial", "#ffffff");
         this.bulletsText = this.GetText(120, 15, "0", "15px Arial", "#ffffff");
         this.rocksText = this.GetText(200, 15, "0", "15px Arial", "#ffffff");
         this.scoreText = this.GetText(325, 630, "0", "35px Arial", "#000000");
-        this.playerLvlText = this.GetText(290,585, "0", "35px Arial", "#000000");
-        this.playerLifeText = this.GetText(60,595, "0", "30px Arial", "#000000");
-        
+        this.playerLvlText = this.GetText(290, 585, "0", "35px Arial", "#000000");
+        this.playerLifeText = this.GetText(60, 595, "0", "30px Arial", "#000000");
+
+
+
+        this.OpenGameOverScreen();
     }
 
     Update() {
@@ -38,5 +48,28 @@ export class HUD extends GameObject {
         let t = game.add.text(x, y, text, { font: fontSize, fill: fillColor, align: "center" });
         t.anchor.setTo(0.5, 0.5);
         return t;
+    }
+
+    OpenGameOverScreen() {
+        this.gameOverTitle = game.add.sprite(game.world.centerX, 200, "game_over");
+        this.gameOverTryAgainButton = game.add.button(game.world.centerX, 270, "try_again");
+        this.gameOverTryAgainButton.onInputUp.add(this.ButtonTryAgainUp, this);
+        this.gameOverQuitButton = game.add.button(game.world.centerX, 330, "quit");
+
+        this.gameOverTitle.anchor.setTo(0.5, 0.5);
+        this.gameOverTryAgainButton.anchor.setTo(0.5, 0.5);
+        this.gameOverQuitButton.anchor.setTo(0.5, 0.5);
+    }
+
+    ButtonTryAgainUp() {
+        this.CloseGameOverScreen();
+        //player.Start();
+    }
+
+    CloseGameOverScreen() {
+        this.gameOverTitle.kill();
+        this.gameOverTryAgainButton.kill();
+        this.gameOverQuitButton.kill();
+
     }
 }

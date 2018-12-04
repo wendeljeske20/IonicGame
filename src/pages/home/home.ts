@@ -20,18 +20,15 @@ export let hud: HUD;
 export let ground: Phaser.Sprite;
 export let spawner: Spawner;
 
-export let x: any;
-export let y: any;
-export let z: any;
+export let x: any = 0;
+export let y: any = 0;
+export let z: any = 0;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  x: any;
-  y: any;
-  z: any;
   id: any;
   constructor(public navCtrl: NavController, platform: Platform, public deviceMotion: DeviceMotion) {
     
@@ -56,10 +53,7 @@ export class HomePage {
         x = acc.x;
         y = acc.y;
         z = acc.z;
-        this.x = acc.x;
-        this.y = acc.y;
-        this.z = acc.z;
-
+        
       }
       );
     } catch (err) {
@@ -86,6 +80,9 @@ function Preload() {
   game.load.image('bullet', '././assets/sprites/bullet.png');
   game.load.image('rock', '././assets/sprites/rock.png');
   game.load.image('downHUD', '././assets/sprites/DownHUD.png');
+  game.load.image('game_over', '././assets/sprites/game_over.png');
+  game.load.image('try_again', '././assets/sprites/try_again.png');
+  game.load.image('quit', '././assets/sprites/quit.png');
 
 }
 function Create() {
