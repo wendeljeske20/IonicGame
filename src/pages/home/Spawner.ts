@@ -29,7 +29,7 @@ export class Spawner extends GameObject {
                 /* this.SpawnRandomRock(Phaser.Math.random(50, 300), 150, Phaser.Math.roundTo(Phaser.Math.random(100, 500)), Phaser.Math.random(1, 2));
                 this.nextSpawnRate = 0; */
                 this.level = Phaser.Math.roundTo(Phaser.Math.random(1, 5));
-                this.SpawnRock(Phaser.Math.random(50, 300), 150,this.level);
+                this.SpawnRock(Phaser.Math.random(50, 280), 120,this.level);
                 this.nextSpawnRate = 0;
             }
         }
@@ -68,34 +68,34 @@ export class Spawner extends GameObject {
                 break;
         }
     }
-    RandomColor(rock: Rock) {
-        let random = Phaser.Math.roundTo(Phaser.Math.random(0, 4))
-        switch (random) {
-            case 0:
-                rock.sprite.tint = Phaser.Color.GREEN;
-                break;
-            case 1:
-                rock.sprite.tint = Phaser.Color.BLUE;
-                break;
-            case 2:
-                rock.sprite.tint = Phaser.Color.AQUA;
-                break;
-            case 3:
-                rock.sprite.tint = Phaser.Color.VIOLET;
-                break;
-            case 4:
-                rock.sprite.tint = Phaser.Color.BLACK;
-                break;
+    // RandomColor(rock: Rock) {
+    //     let random = Phaser.Math.roundTo(Phaser.Math.random(0, 4))
+    //     switch (random) {
+    //         case 0:
+    //             rock.sprite.tint = Phaser.Color.GREEN;
+    //             break;
+    //         case 1:
+    //             rock.sprite.tint = Phaser.Color.BLUE;
+    //             break;
+    //         case 2:
+    //             rock.sprite.tint = Phaser.Color.AQUA;
+    //             break;
+    //         case 3:
+    //             rock.sprite.tint = Phaser.Color.VIOLET;
+    //             break;
+    //         case 4:
+    //             rock.sprite.tint = Phaser.Color.BLACK;
+    //             break;
 
-        }
-    }
-    SpawnRandomRock(x: number, y: number, maxHealth: number, size: number) {
-        let rock = new Rock(x, y, maxHealth, size);
+    //     }
+    // }
+    // SpawnRandomRock(x: number, y: number, maxHealth: number, size: number) {
+    //     let rock = new Rock(x, y, maxHealth, size);
 
-        this.RandomColor(rock);
-        objects.push(rock);
-        this.rocks.push(rock);
-    }
+    //     this.RandomColor(rock);
+    //     objects.push(rock);
+    //     this.rocks.push(rock);
+    // }
     SpawnRock(x: number, y: number, level:number) {
         let rock = new Rock(x, y, 1, 1);
         this.SetRockColorAndLevel(level, rock);

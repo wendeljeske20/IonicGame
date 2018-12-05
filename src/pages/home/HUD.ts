@@ -5,9 +5,9 @@ import { Player } from "./Player";
 
 export class HUD extends GameObject {
 
-    objectsText: Phaser.Text;
-    bulletsText: Phaser.Text;
-    rocksText: Phaser.Text;
+    //objectsText: Phaser.Text;
+    //bulletsText: Phaser.Text;
+    //rocksText: Phaser.Text;
     scoreText: Phaser.Text;
     playerLifeText: Phaser.Text;
     playerXpText: Phaser.Text;
@@ -22,13 +22,13 @@ export class HUD extends GameObject {
 
     constructor() {
         super();
-        this.downHUD = game.add.sprite(0, 551, 'downHUD');
-        this.objectsText = this.GetText(40, 15, "0", "15px Arial", "#ffffff");
-        this.bulletsText = this.GetText(120, 15, "0", "15px Arial", "#ffffff");
-        this.rocksText = this.GetText(200, 15, "0", "15px Arial", "#ffffff");
-        this.scoreText = this.GetText(325, 630, "0", "35px Arial", "#000000");
-        this.playerLvlText = this.GetText(290, 585, "0", "35px Arial", "#000000");
-        this.playerLifeText = this.GetText(60, 595, "0", "30px Arial", "#000000");
+        this.downHUD = game.add.sprite(0, 501, 'downHUD');
+        //this.objectsText = this.GetText(40, 15, "0", "15px Arial", "#ffffff");
+        //this.bulletsText = this.GetText(120, 15, "0", "15px Arial", "#ffffff");
+        //this.rocksText = this.GetText(200, 15, "0", "15px Arial", "#ffffff");
+        this.scoreText = this.GetText(315, 580, "0", "35px Arial", "#000000");
+        this.playerLvlText = this.GetText(315, 535, "0", "35px Arial", "#000000");
+        this.playerLifeText = this.GetText(60, 545, "0", "30px Arial", "#000000");
 
 
 
@@ -36,9 +36,9 @@ export class HUD extends GameObject {
     }
 
     Update() {
-        this.objectsText.text = "Objects: " + objects.length.toString();
-        this.bulletsText.text = "Bullets: " + player.weapon.bullets.length.toString();
-        this.rocksText.text = "Rocks: " + spawner.rocks.length.toString();
+        //this.objectsText.text = "Objects: " + objects.length.toString();
+        //this.bulletsText.text = "Bullets: " + player.weapon.bullets.length.toString();
+        //this.rocksText.text = "Rocks: " + spawner.rocks.length.toString();
         this.scoreText.text = player.score.toString();
         this.playerLvlText.text = player.playerLevel.toString();
         this.playerLifeText.text = player.life.toString();

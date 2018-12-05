@@ -91,9 +91,9 @@ function Create() {
   objects = [];
 
 
-  let background = game.add.sprite(0, 0, 'backgroud');
+  let background = game.add.sprite(0, -30, 'backgroud');
 
-  ground = game.add.sprite(0, 550, 'ground');
+  ground = game.add.sprite(0, 500, 'ground');
   game.physics.arcade.enable(ground);
   ground.visible = false;
   ground.body.immovable = true;
@@ -105,7 +105,7 @@ function Create() {
 
 
 
-  player = new Player(game.world.centerX, 520, 'cannon');
+  player = new Player(game.world.centerX, 470, 'cannon');
   hud = new HUD();
   spawner = new Spawner();
 
@@ -134,7 +134,7 @@ function CollisionTest() {
       if (spawner.rocks[j] && player.weapon.bullets[i]) {
 
         if (game.physics.arcade.overlap(spawner.rocks[j].sprite, player.weapon.bullets[i].sprite)) {
-          spawner.rocks[j].TakeDamage(10);
+          spawner.rocks[j].TakeDamage(player.weapon.damage);
           player.weapon.bullets[i].Destroy();
         }
       }
@@ -144,7 +144,7 @@ function CollisionTest() {
   for (let j = 0; j < spawner.rocks.length; j++) {
     if (game.physics.arcade.overlap(spawner.rocks[j].sprite, player.sprite)) {
       spawner.rocks[j].Destroy();
-      player.life -= 6 * spawner.level;
+      player.life -= 8 * spawner.level;
     }
   }
 }

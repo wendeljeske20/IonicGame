@@ -40,14 +40,10 @@ export class Rock extends GameObject {
         }
     }
     PlayerReward(mh: number) {
-        switch (mh) {
-            case 25:
-                player.AddXp(100);
-                player.score += 100;
-                break;
-            default:
-                break;
-        }
+
+        player.AddXp(100);
+        player.score += 100;
+
     }
     SetMaxHealth(mh: number) {
         this.maxHealth = mh;

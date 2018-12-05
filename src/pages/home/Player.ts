@@ -53,7 +53,7 @@ export class Player extends GameObject {
     Update() {
         
 
-        if(this.life <= 90 && this.alive)
+        if(this.life <= 0 && this.alive)
         {
             hud.OpenGameOverScreen();
             
@@ -76,13 +76,13 @@ export class Player extends GameObject {
     Controls() {
 
 
-        if (this.moveLeftButton.isDown && this.sprite.x > 40 || x > 1 && this.sprite.x > 40) {
+        if (this.moveLeftButton.isDown && this.sprite.x > 40 ) {
             this.sprite.x -= this.speed * 2;
         }
         if (x > 1 && this.sprite.x > 40) {
             this.sprite.x -= this.speed * (x / 1.4);
         }
-        if (this.moveRightButton.isDown && this.sprite.x < 334 || x < -1 && this.sprite.x < 334) {
+        if (this.moveRightButton.isDown && this.sprite.x < 334 ) {
             this.sprite.x += this.speed * 2;
         }
         if ( x < -1 && this.sprite.x < 334) {

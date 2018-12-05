@@ -1,8 +1,23 @@
 page-home {
-    h2
-    {
-       
-        background-color: orange;
-    }
+  h2 {
+    background-color: orange;
+  }
+
+  button
+  {
+    height: 20px;
+    width: 60px;
+    font-size: 100%;
+  }
+  ion-label
+  {
+    width: 100px;
    
+  }
+  ion-input {
+    height: 10px;
+    width: 250px;
+    float: right;
+   
+  }
 }
